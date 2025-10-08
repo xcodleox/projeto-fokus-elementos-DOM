@@ -4,22 +4,31 @@ const curto = document.querySelector('.app__card-button--curto');
 const longo = document.querySelector('.app__card-button--longo');
 const banner = document.querySelector('.app__image');
 const titulo = document.querySelector('.app__title');
-const botoes = document.querySelectorAll('.app__card-button')
-const musicaInputs = document.querySelector('#alternar-musica')
-const musica = new Audio('/music/luna-rise-part-one.mp3')
-const startPauseBt = document.querySelector('#start-pause')
+const botoes = document.querySelectorAll('.app__card-button');
+const musicaInputs = document.querySelector('#alternar-musica');
+const startPauseBt = document.querySelector('#start-pause');
 const audioPlay = new Audio('/music/play.wav');
 const audioPausa = new Audio('/music/pause.mp3');
-const audioTempoFinalizado = new Audio('./music/beep.mp3')
-const iniciarOuPausarBt = document.querySelector('#start-pause span')
-const incones = document.querySelector('.app__card-primary-butto-icon')
-const tempoNaTela = document.querySelector('#timer')
+const audioTempoFinalizado = new Audio('./music/beep.mp3');
+const iniciarOuPausarBt = document.querySelector('#start-pause span');
+const incones = document.querySelector('.app__card-primary-butto-icon');
+const tempoNaTela = document.querySelector('#timer');
 
 
 let temporizador = 1500
 let intervaloId = null
 
-musica.loop = true ;
+const musica = new Audio('/music/luna-rise-part-one.mp3');
+musica.loop = true;
+
+// 🎵 Adicione este bloco:
+musicaInputs.addEventListener('change', () => {
+  if (musicaInputs.checked) {
+    musica.play();
+  } else {
+    musica.pause();
+  }
+});
 
 
 const alterarContexto = (contexto) => {
